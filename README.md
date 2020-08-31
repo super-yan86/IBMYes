@@ -1,5 +1,20 @@
 # IBMYes
 
+# 关于Action Restart IBM Cloud 报错的解决办法！
+
+目前推测是cf-cli的6.52.0版本的问题，强制安装6.51.0可以解决问题
+
+解决方法是将/.github/workflows/ibm.yml文件的第35行左右的：
+
+./IBM_Cloud_CLI/ibmcloud cf install
+
+改为
+
+./IBM_Cloud_CLI/ibmcloud cf install -v 6.51.0
+
+这样会强制安装6.51.0这个旧版本，以规避在6.52.0版本上遇到的问题。
+
+-------------------------------------------------------------------------------------------
 本项目包括3部分
 
 1. IBM Cloud Fonudray搭建V2Ray ws
